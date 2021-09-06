@@ -2,81 +2,26 @@
 
 int main()
 {
-    int n,j,i,temp,b,x,y;
-    printf("nhap so phan tu cua mang:");
-    scanf("%d",&n);
-    int a[n];
-    for( i = 0; i<n ; i++)
-    {
-        printf("nhap phan thu %d:",i);
-        scanf("%d",&a[i]);
-    }
-     printf("\n");
-   for( i = 0; i<n ; i++)
-   {
-      printf("%d\t",a[i]);
-   }
-   
-   
-   int flag=0;
-   while(flag==0)
-   {
-        printf("ban chon gia tri:");
-        scanf("%d",&b);
-            switch (b)
+    int A[10][10], B[10][10], C[10][10];
+    int hang,cot;
+    int i,j;
+    printf("Nhap so hang :");
+    scanf("%d",&hang);
+    printf("Nhap so cot:");
+    scanf("%d",&cot);
+    for(i=0;i<hang;i++)
+        for(j=0;j<cot;j++)
             {
-                case 1:printf("nhap x:");
-                 scanf("%d",&x);
-                 i=0;
-                while(a[i]!=x && i<n)
-                    i++;
-                if(i<n)
-                    printf("da tim thay o phan tu thu %d \n",i);
-                else
-                    printf("khong tim thay \n");
-                break;
-            case 2:
-            printf("\n");
-                  for(i=0;i<n;i++)
-                        for(j=i+1;j<n;j++)
-                            if(a[i]>a[j])
-                                {
-                                    temp=a[i];
-                                    a[i]=a[j];
-                                    a[j]=temp;
-                                }
-                     for( i = 0; i<n ; i++)
-                  {
-                      printf("%d\t",a[i]);
-                  }
-                  break;
-            case 3:
-            printf("\n");
-                  for(i=0;i<n;i++)
-                        for(j=i+1;j<n;j++)
-                            if(a[i]<a[j])
-                                {
-                                    temp=a[i];
-                                    a[i]=a[j];
-                                    a[j]=temp;
-                                }
-                     for( i = 0; i<n ; i++)
-                  {
-                      printf("%d\t",a[i]);
-                  }
-                  break;
+                printf("A[%d,%d] , B[%d,%d] :",i,j,i,j);
+                scanf("%d %d",&A[i][j],&B[i][j]);
+                C[i][j] = A[i][j] + B[i][j];
+             }
+    for(i=0;i<hang;i++)
+        for(j=0;j<cot;j++)
+            {
+                printf("A[%d,%d]=%d,B[%d,%d]=%d,C[%d,%d]=%d\n",i,j,A[i][j],
+                i,j,B[i][j],i,j,C[i][j]);
             }
-        printf("1 la co, 2 la khong \n");    
-        printf("Ban co muon tiep tuc chon gia tri:");
-        scanf("%d",&y);
-        if(y==1)
-        flag=0;
-        else
-        flag=1;
-        
-   }
-        
-   
-   
+
     return 0;
 }
