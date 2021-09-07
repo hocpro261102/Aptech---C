@@ -53,19 +53,28 @@ int max(int a[],int n)
     
 }
 
-int tim(a[],int n,int x)
+void  timkiem(int a[], int n)
+    {
+        int i,x,sl=0;
+        printf("nhap x:");
+        scanf("%d",&x);
+      for(i=0;i<n;i++)
+      {
+                if(a[i]== x)
+            {
+                    printf("Da tim thay o vi tri %d \n",i+1);
+                    sl++;
+            }
+      }
+      if(sl==0)
+      printf("Khong tim thay \n");
+}
+
+void timmax(int a[],int n,int y)
 {
-    int c;
     for(int i=0;i<n;i++)
-        {
-            if(x=a[i])
-                c=0;
-            else
-                c=1;
-            
-            
-        }
-    return c;
+        if(a[i]==y)
+            printf("%d",i+1);
 }
    
     
@@ -74,7 +83,7 @@ int tim(a[],int n,int x)
 int main()
 {
     int a[100];
-    int n,x,c;
+    int n,x,y;
     printf("nhap so phan tu cua mang:");
     scanf("%d",&n);
     nhapmang(a,n);
@@ -83,12 +92,10 @@ int main()
     sapxep(a,n);
     xuatmang(a,n);
     printf("max=%d \n",max(a,n));
-    printf("nhap gia tri cua x:");
-    scanf("%d",&x);
-    if(c=0)
-        printf("da tim thay");
-    else
-        printf("x khong co trong mang");
+    timkiem(a,n);
+    y=max(a,n);
+    printf("max xuat hien o vi tri:");
+    timmax(a,n,y);
     
     
     
