@@ -1,115 +1,28 @@
 #include <stdio.h>
-void nhapmang(int a[],int n)
+struct phanso
 {
-    for(int i=0;i<n;i++)
-        {
-            printf("nhap phan tu thu %d:",i+1);
-            scanf("%d",&a[i]);
-        }
-}
-void xuatmang(int a[],int n)
+  int tu;
+  int mau;
+};
+int
+main ()
 {
-    for(int i=0;i<n;i++)
-        {
-            
-            printf("%d \t",a[i]);
-        }
-}
-void sapxep(int a[],int n)
-{
-    int i,j,temp;
-     for(i=0;i<n;i++)
-                        for(j=i+1;j<n;j++)
-                            if(a[i]>a[j])
-                                {
-                                    temp=a[i];
-                                    a[i]=a[j];
-                                    a[j]=temp;
-                                }
-                     
-}
-void bubblesort(int a[],int n)
-{
- int i,j,tam;
- for(i=0;i<n+1;i++)
-    for(j=n-1;j>i;j--)
-        if(a[j]<a[j-1])
-            {
-            tam=a[j];
-            a[j]=a[j-1];
-            a[j-1]=tam;
-            }
-}
 
-void insertionsort(int a[],int n)
-{
-    int vt,i,x;
-    for(i=0;i<n;i++)
-    {
-        x=a[i];
-        vt=i-1;
-        while((vt>=0)&&(a[vt]>x))
-        {
-            a[vt+1]=a[vt];
-        vt--;
-        }
-        a[vt+1]=x;
-    }
-    
-}
-void  timkiem(int a[], int n)
- {
-        int i,x,sl=0;
-        printf("nhap x:");
-        scanf("%d",&x);
-      for(i=0;i<n;i++)
-      {
-                if(a[i]== x)
-            {
-                    printf("Da tim thay o vi tri %d \n",i+1);
-                    sl++;
-            }
-      }
-      if(sl==0)
-      printf("Khong tim thay \n");
-}
-int main()
-{
-    int a[100];
-    int n,x;
-    printf("nhap so phan tu cua mang:");
-    scanf("%d",&n);
-    nhapmang(a,n);
-    xuatmang(a,n);
-    printf("\n");
-    printf("1.Tim kiem \n");
-    printf("2.Sap xep mang chon truc tiep \n");
-    printf("3.bubblesort \n");
-    printf("4.insertionsort \n");
-    printf("ban chon gia tri:");
-    scanf("%d",&x);
-    switch(x)
-    {
-        
-        case 1: timkiem(a,n);break;
-        case 2:
-        {
-            sapxep(a,n);
-            xuatmang(a,n);
-            break;
-            
-        }
-        case 3: {
-            bubblesort(a,n);
-             xuatmang(a,n);
-            break;
-        }
-        case 4: 
-        {
-            insertionsort(a,n);
-            xuatmang(a,n);
-            break;
-        }
-        
-    }
+  struct phanso a;
+  printf ("nhap phan so thu 1\n");
+  printf ("nhap tu so 1:");
+  scanf ("%d", &a.tu);
+  printf ("nhap mau so 1:");
+  scanf ("%d", &a.mau);
+  struct phanso b;
+  printf ("nhap phan so thu 2\n");
+  printf ("nhap tu so 2:");
+  scanf ("%d", &b.tu);
+  printf ("nhap mau so 2:");
+  scanf ("%d", &b.mau);
+  printf ("tong la:%d/%d  \n", (a.tu*b.mau+a.mau*b.tu),(a.mau*b.mau));
+  printf ("hieu la:%d/%d  \n", (a.tu*b.mau-a.mau*b.tu),(a.mau*b.mau));
+  printf ("tich la:%d/%d \n", (a.tu*b.tu),(a.mau*b.mau));
+  printf ("tich la:%d/%d \n", (a.tu*b.mau),(a.mau*b.tu));
+  return 0;
 }
