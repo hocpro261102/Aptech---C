@@ -15,7 +15,20 @@ void xuatmang(int a[],int n)
             printf("%d \t",a[i]);
         }
 }
-void hoandoi(int a[],int n)
+void sapxep(int a[],int n)
+{
+    int i,j,temp;
+     for(i=0;i<n;i++)
+                        for(j=i+1;j<n;j++)
+                            if(a[i]>a[j])
+                                {
+                                    temp=a[i];
+                                    a[i]=a[j];
+                                    a[j]=temp;
+                                }
+                     
+}
+void bubblesort(int a[],int n)
 {
  int i,j,tam;
  for(i=0;i<n+1;i++)
@@ -27,16 +40,76 @@ void hoandoi(int a[],int n)
             a[j-1]=tam;
             }
 }
+
+void insertionsort(int a[],int n)
+{
+    int vt,i,x;
+    for(i=0;i<n;i++)
+    {
+        x=a[i];
+        vt=i-1;
+        while((vt>=0)&&(a[vt]>x))
+        {
+            a[vt+1]=a[vt];
+        vt--;
+        }
+        a[vt+1]=x;
+    }
+    
+}
+void  timkiem(int a[], int n)
+ {
+        int i,x,sl=0;
+        printf("nhap x:");
+        scanf("%d",&x);
+      for(i=0;i<n;i++)
+      {
+                if(a[i]== x)
+            {
+                    printf("Da tim thay o vi tri %d \n",i+1);
+                    sl++;
+            }
+      }
+      if(sl==0)
+      printf("Khong tim thay \n");
+}
 int main()
 {
     int a[100];
-    int n;
+    int n,x;
     printf("nhap so phan tu cua mang:");
     scanf("%d",&n);
     nhapmang(a,n);
     xuatmang(a,n);
-    hoandoi(a,n);
     printf("\n");
-    xuatmang(a,n);
-    return 0;
+    printf("1.Tim kiem \n");
+    printf("2.Sap xep mang chon truc tiep \n");
+    printf("3.bubblesort \n");
+    printf("4.insertionsort \n");
+    printf("ban chon gia tri:");
+    scanf("%d",&x);
+    switch(x)
+    {
+        
+        case 1: timkiem(a,n);break;
+        case 2:
+        {
+            sapxep(a,n);
+            xuatmang(a,n);
+            break;
+            
+        }
+        case 3: {
+            bubblesort(a,n);
+             xuatmang(a,n);
+            break;
+        }
+        case 4: 
+        {
+            insertionsort(a,n);
+            xuatmang(a,n);
+            break;
+        }
+        
+    }
 }
