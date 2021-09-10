@@ -1,28 +1,54 @@
 #include <stdio.h>
-struct phanso
-{
-  int tu;
-  int mau;
-};
-int
-main ()
-{
 
-  struct phanso a;
-  printf ("nhap phan so thu 1\n");
-  printf ("nhap tu so 1:");
-  scanf ("%d", &a.tu);
-  printf ("nhap mau so 1:");
-  scanf ("%d", &a.mau);
-  struct phanso b;
-  printf ("nhap phan so thu 2\n");
-  printf ("nhap tu so 2:");
-  scanf ("%d", &b.tu);
-  printf ("nhap mau so 2:");
-  scanf ("%d", &b.mau);
-  printf ("tong la:%d/%d  \n", (a.tu*b.mau+a.mau*b.tu),(a.mau*b.mau));
-  printf ("hieu la:%d/%d  \n", (a.tu*b.mau-a.mau*b.tu),(a.mau*b.mau));
-  printf ("tich la:%d/%d \n", (a.tu*b.tu),(a.mau*b.mau));
-  printf ("tich la:%d/%d \n", (a.tu*b.mau),(a.mau*b.tu));
-  return 0;
+ 
+void NhapMang(int a[], int n)
+{
+    for(int i = 0;i < n; i++)
+    {
+        printf("Nhap so thu %d: ", i+1);
+        scanf("%d", &a[i]);
+    }
+}
+ 
+void XuatMang(int a[], int n)
+{
+    for(int i = 0;i < n; i++)
+    {
+        printf("%d \t", a[i]);
+    }
+}
+ 
+void ThemPhanTu(int a[],int n,int vitri,int so)
+{
+    
+    for(int i = n ; i >vitri; i--)
+    {
+        a[i] = a[i-1];
+    }
+    
+    a[vitri] = so;
+    n++;
+    
+}
+int main()
+{
+    int a[100];
+    int n;
+    printf("\nNhap so luong phan tu: ");
+    scanf("%d",&n);
+    NhapMang(a,n);
+    XuatMang(a,n);
+    int vitri, so;
+    printf("\nNhap so can them: ");
+    scanf("%d",&so);
+    printf("\nNhap vi tri muon chen: ");
+    scanf("%d",&vitri);
+    ThemPhanTu(a,n,vitri,so);
+    printf("\nMang sau khi them: ");
+    XuatMang(a,n);
+    
+    
+    
+    
+    return 0;
 }
