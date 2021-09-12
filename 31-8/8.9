@@ -1,54 +1,37 @@
 #include <stdio.h>
+#include <string.h>
+struct SinhVien
+{
+	char MaSo[30];
+	int Toan, Ly, Hoa;
+};
+typedef struct SinhVien SINHVIEN;
 
- 
-void NhapMang(int a[], int n)
-{
-    for(int i = 0;i < n; i++)
-    {
-        printf("Nhap so thu %d: ", i+1);
-        scanf("%d", &a[i]);
-    }
-}
- 
-void XuatMang(int a[], int n)
-{
-    for(int i = 0;i < n; i++)
-    {
-        printf("%d \t", a[i]);
-    }
-}
- 
-void ThemPhanTu(int a[],int n,int vitri,int so)
-{
-    
-    for(int i = n ; i >vitri; i--)
-    {
-        a[i] = a[i-1];
-    }
-    
-    a[vitri] = so;
-    n++;
-    
-}
 int main()
 {
-    int a[100];
-    int n;
-    printf("\nNhap so luong phan tu: ");
-    scanf("%d",&n);
-    NhapMang(a,n);
-    XuatMang(a,n);
-    int vitri, so;
-    printf("\nNhap so can them: ");
-    scanf("%d",&so);
-    printf("\nNhap vi tri muon chen: ");
-    scanf("%d",&vitri);
-    ThemPhanTu(a,n,vitri,so);
-    printf("\nMang sau khi them: ");
-    XuatMang(a,n);
-    
-    
-    
-    
+    SINHVIEN x;
+    char name[30];
+    int dtb;
+    for(int i=0;i<5;i++)
+    {
+        struct SINHVIEN x1
+        printf("\nNhap thong tin sinh vien thu %d",i+1);
+        printf("\nNhap ten:");
+        gets(name);
+        printf("\nNhap vao diem toan: ");
+	    scanf("%d", &x.Toan);
+	    printf("\nNhap vao diem ly: ");
+	    scanf("%d", &x.Ly);
+	    printf("\nNhap vao diem hoa: ");
+	    scanf("%d", &x.Hoa);
+	    dtb=(x.Toan + x.Ly + x.Hoa) / 3;
+	    printf("Ten sinh vien thu %d:",i+1);
+	    puts(name);
+	    printf("\nDiem toan: %d", x.Toan);
+	    printf("\nDiem ly: %d", x.Ly);
+	    printf("\nDiem hoa: %d", x.Hoa);
+	    printf("\ndiem trung binh la: %d",dtb);
+    }
+
     return 0;
 }
