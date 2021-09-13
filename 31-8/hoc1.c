@@ -1,49 +1,62 @@
 #include <stdio.h>
+#include <string.h>
+
+struct sach
+{
+    char ma[30];
+    char ten[30];
+    char tacgia[30];
+    char nam[30];
+};
 
 int main()
 {
+    
     int a[100];
-    int n;
-    printf("\nNhap so luong phan tu: ");
+    int n,i;
+    printf("Nhap so quyen sach:");
     scanf("%d",&n);
-    for(int i = 0;i < n; i++)
-    {
-        printf("Nhap so thu %d: ", i+1);
-        scanf("%d", &a[i]);
-    }
-    for(int i = 0;i < n; i++)
-    {
-        printf("%d \t", a[i]);
-    }
-    int vitri, so;
-    printf("\nNhap so can them: ");
-    scanf("%d",&so);
-    printf("\nNhap vi tri muon chen: ");
-    scanf("%d",&vitri);
-    for(int i = n ; i >vitri; i--)
-    {
-        a[i] = a[i-1];
-    }
+    struct sach s[n];
+    for(i=0;i<n;i++)
+        {
+            printf("\nNhap thong tin quyen sach thu %d",i+1);
+            printf("\nNhap ma sach:");
+            scanf("%s",s[i].ma);
+            printf("\nNhap ten sach:");
+            scanf("%s",s[i].ten);
+            printf("\nNhap tac gia sach:");
+            scanf("%s",s[i].tacgia);
+            printf("\nNhap nam xuat ban:");
+            scanf("%s",s[i].nam);
+        }
+    for(i=0;i<n;i++)
+        {
+            printf("\nThong tin quyen sach thu %d:",i+1);
+            printf("\nMa sach la:%s",s[i].ma);
+            printf("\nTen sach la:%s",s[i].ten);
+            printf("\nTac gia sach la:%s",s[i].tacgia);
+            printf("\n Nam xuat ban la:%s",s[i].nam);
+        }
+        
+    int length=strlen(s[i].ten);
+    for(i=0;i<n;i++)
+        {
+            for(int j=i+1;j<n;j++)
+                {
+                    
+                    if(strlen(s[i].ten)<strlen(s[j].ten))
+                        {
+                        char temp[30];
+                        strcpy(temp,s[j].ten);
+                        strcpy(s[j].ten,s[i].ten);
+                        strcpy(s[i].ten,temp);
+                        }
+                }
+        }
+    for(int i=0;i<3;i++)
+        {
+            printf("\n .%s",s[i].ten);
+        }
     
-    a[vitri] = so;
-    n++;
-    printf("\nMang sau khi them: ");
-    for(int i = 0;i < n; i++)
-    {
-        printf("%d \t", a[i]);
-    }
-    printf("\nNhap vi tri muon xoa: ");
-    scanf("%d", &vitri);
-    for(int i = vitri; i < n - 1; i++)
-    {
-        a[i] = a[i+1];
-    }
-    
-    --n;
-    printf("\nMang sau khi xoa: ");
-    for(int i = 0;i < n; i++)
-    {
-        printf("%d \t", a[i]);
-    }
     return 0;
 }
